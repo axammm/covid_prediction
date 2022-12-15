@@ -16,6 +16,7 @@
  - Load the read the dataset using pandas
  2. Data cleaning 
  - By using the Interpolation method, the NaN value inside the covid_new column can be filled.
+ <br><br> ![img](/resources/EDA.PNG)
  3. Data preprocessing
  - Normalize the data using MinMax Scaler so that the data can be learned.
  4. Train-test split
