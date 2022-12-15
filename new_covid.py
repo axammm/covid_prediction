@@ -2,7 +2,6 @@
 # Import modules
 from tensorflow.keras import Sequential,Input
 from tensorflow.keras.callbacks import TensorBoard,EarlyStopping
-from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.layers import Dense,Dropout
 from tensorflow.keras.layers import LSTM
 from sklearn.model_selection import train_test_split
@@ -66,14 +65,14 @@ X_train = np.array(X_train)
 Y_train = np.array(Y_train)
 #%%
 #Train-test split
-X_train,X_test,Y_train,Y_test = train_test_split(X_train,Y_train,random_state=123)
+X_train,X_test,Y_train,Y_test = train_test_split(X_train,Y_train,random_state=123,shuffle=True)
 
 #%%
 # Model development
 model = Sequential()
 model.add(Input(shape=(30,1)))
-model.add(LSTM(64))
-model.add(Dropout(0.2))
+model.add(LSTM(32))
+model.add(Dropout(0.3))
 model.add(Dense(1, activation = 'linear'))
 model.summary()
 
@@ -90,7 +89,7 @@ LOGS_PATH = os.path.join(os.getcwd(),'logs', datetime.datetime.now().strftime('%
 #Tensorboard
 tensorboard_callback = TensorBoard(log_dir=LOGS_PATH)
 early_stop_callback = EarlyStopping(monitor='val_loss',patience=5)
-hist = model.fit(X_train,Y_train,epochs=100,callbacks=[tensorboard_callback,early_stop_callback],validation_data=(X_test,Y_test))
+hist = model.fit(X_train,Y_train,epochs=200,callbacks=[tensorboard_callback,early_stop_callback],validation_data=(X_test,Y_test))
 #%%
 # Load testing dataset path
 test_csv = os.path.join(os.getcwd(),'dataset','cases_malaysia_test.csv')
