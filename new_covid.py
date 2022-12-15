@@ -71,7 +71,7 @@ X_train,X_test,Y_train,Y_test = train_test_split(X_train,Y_train,random_state=12
 # Model development
 model = Sequential()
 model.add(Input(shape=(30,1)))
-model.add(LSTM(32))
+model.add(LSTM(64))
 model.add(Dropout(0.3))
 model.add(Dense(1, activation = 'linear'))
 model.summary()
