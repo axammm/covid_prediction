@@ -5,7 +5,7 @@ from tensorflow.keras.callbacks import TensorBoard,EarlyStopping
 from tensorflow.keras.layers import Dense,Dropout
 from tensorflow.keras.layers import LSTM
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_absolute_percentage_error
+from sklearn.metrics import mean_absolute_error,mean_absolute_percentage_error
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 import numpy as np
@@ -65,7 +65,7 @@ X_train = np.array(X_train)
 Y_train = np.array(Y_train)
 #%%
 #Train-test split
-X_train,X_test,Y_train,Y_test = train_test_split(X_train,Y_train,random_state=123,shuffle=True)
+X_train,X_test,Y_train,Y_test = train_test_split(X_train,Y_train,random_state=123)
 
 #%%
 # Model development
