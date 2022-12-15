@@ -26,6 +26,8 @@
  - Epoch loss graph from tensorboard
    <br> ![img](/resources/Epoch_loss.PNG)
  6. Evaluation & Prediction
+ - The actual cases vs predicted cases graph
+ <br><br> ![img](/resources/Capture2.PNG)
  - Using mean absolute percentage error(mape) metrics to understand a machine learning model's performance.
  <br><br> ![img](/resources/Evaluate.PNG)
  
